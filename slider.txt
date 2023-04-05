@@ -1,0 +1,191 @@
+<div class="cp_cssslider">
+<div class="mask">
+<ul>
+<li><a href="#">
+<picture>
+          <source media="(min-width: 768px)" type="image/webp" srcset="img/sample_001.jpg.webp" alt="サンプルイメージ">
+          <source media="(max-width: 767px)" type="image/webp" srcset="img/sample_001.jpg.webp" alt="サンプルイメージ">
+          <img src="/img/sample_001.jpg" style="opacity: 1;">
+</picture>
+</a>
+<div class="tooltip"><h1>sample1</h1></div></li>
+
+<li><a href="#">
+<picture>
+          <source media="(min-width: 768px)" type="image/webp" srcset="img/sample_002.jpg.webp" alt="サンプルイメージ">
+          <source media="(max-width: 767px)" type="image/webp" srcset="img/sample_002.jpg.webp" alt="サンプルイメージ">
+          <img src="/img/sample_002.jpg" style="opacity: 1;">
+</picture>
+</a>
+<div class="tooltip"><h1>sample2</h1></div></li>
+
+<li><a href="#">
+<picture>
+          <source media="(min-width: 768px)" type="image/webp" srcset="img/sample_003.jpg.webp" alt="サンプルイメージ">
+          <source media="(max-width: 767px)" type="image/webp" srcset="img/sample_003.jpg.webp" alt="サンプルイメージ">
+          <img src="/img/sample_003.jpg" style="opacity: 1;">
+</picture>
+</a>
+<div class="tooltip"><h1>sample3</h1></div></li>
+
+<li><a href="#">
+<picture>
+          <source media="(min-width: 768px)" type="image/webp" srcset="img/sample_004.jpg.webp" alt="サンプルイメージ">
+          <source media="(max-width: 767px)" type="image/webp" srcset="img/sample_004.jpg.webp" alt="サンプルイメージ">
+          <img src="/img/sample_004.jpg" style="opacity: 1;">
+</picture>
+</a>
+<div class="tooltip"><h1>sample4</h1></div></li>
+
+<li><a href="#">
+<picture>
+          <source media="(min-width: 768px)" type="image/webp" srcset="img/sample_005.jpg.webp" alt="サンプルイメージ">
+          <source media="(max-width: 767px)" type="image/webp" srcset="img/sample_005.jpg.webp" alt="サンプルイメージ">
+          <img src="/img/sample_005.jpg" style="opacity: 1;">
+</picture>
+</a>
+
+<div class="tooltip"><h1>sample5</h1></div></li>
+
+</ul>
+</div>
+<div class="cp_progressbar"></div>
+</div>
+<style>
+.cp_cssslider {
+	background:#cccccc;
+	border: 5px solid #ffffff;
+	overflow:visible;
+	position:relative;
+}
+.cp_cssslider .mask {
+	overflow:hidden;
+	height:160px;/* ボーダー分を差し引く */
+}
+.cp_cssslider li a picture,.cp_cssslider li a source,.cp_cssslider li a img{
+    width: fit-content
+    height:fit-content;
+}
+
+/* tooltip */
+.cp_cssslider .tooltip {
+	background:rgba(0,0,0,0.7);
+	width:200px;
+	height:auto;
+	position:relative;
+	bottom:95px;
+	left:-300px;
+	-webkit-transition:all 0.3s ease-in-out;
+	transition:all 0.3s ease-in-out;
+}
+.cp_cssslider .tooltip h1 {
+	color:#fff;
+	padding:0 0 0 20px;
+}
+.cp_cssslider li:hover .tooltip{
+	left:0px;
+}
+.cp_cssslider:hover li,
+.cp_cssslider:hover .cp_progressbar {
+	-webkit-animation-play-state:paused;
+	animation-play-state:paused;
+}
+.cp_cssslider li {
+	width:300px;
+	height:200px;
+	position:absolute;
+	top:-200px;
+	list-style:none;
+}
+.cp_cssslider li:nth-child(1){
+	-webkit-animation:cycle1 25s linear infinite;
+	animation:cycle1 25s linear infinite;
+    width: 100%;
+}
+.cp_cssslider li:nth-child(2){
+	-webkit-animation:cycle2 25s linear infinite;
+	animation:cycle2 25s linear infinite;
+    width: 100%;
+}
+.cp_cssslider li:nth-child(3){
+	-webkit-animation:cycle3 25s linear infinite;
+	animation:cycle3 25s linear infinite;
+    width: 100%;
+}
+.cp_cssslider li:nth-child(4){
+	-webkit-animation:cycle4 25s linear infinite;
+	animation:cycle4 25s linear infinite;
+    width: 100%;
+}
+.cp_cssslider li:nth-child(5){
+	-webkit-animation:cycle5 25s linear infinite;
+	animation:cycle5 25s linear infinite;
+    width: 100%;
+}
+@keyframes cycle1 {
+	0%  { top:0px; }
+	4%  { top:0px; }
+	16% { top:0px; opacity:1; z-index:0; }
+	20% { top:200px; opacity:0; z-index:0; }
+	21% { top:-200px; opacity:0; z-index:-1; }
+	50% { top:-200px; opacity:0; z-index:-1; }
+	92% { top:-200px; opacity:0; z-index:0; }
+	96% { top:-200px; opacity:0; }
+	100%{ top:0px; opacity:1; }
+}
+@keyframes cycle2 {
+	0%  { top:-200px; opacity:0; }
+	16% { top:-200px; opacity:0; }
+	20% { top:0px; opacity:1; }
+	24% { top:0px; opacity:1; }
+	36% { top:0px; opacity:1; z-index:0; }
+	40% { top:200px; opacity:0; z-index:0; }
+	41% { top:-200px; opacity:0; z-index:-1; }
+	100%{ top:-200px; opacity:0; z-index:-1; }
+}
+@keyframes cycle3 {
+	0%  { top:-200px; opacity:0; }
+	36% { top:-200px; opacity:0; }
+	40% { top:0px; opacity:1; }
+	44% { top:0px; opacity:1; }
+	56% { top:0px; opacity:1; z-index:0; }
+	60% { top:200px; opacity:0; z-index:0; }
+	61% { top:-200px; opacity:0; z-index:-1; }
+	100%{ top:-200px; opacity:0; z-index:-1; }
+}
+@keyframes cycle4 {
+	0%  { top:-200px; opacity:0; }
+	56% { top:-200px; opacity:0; }
+	60% { top:0px; opacity:1; }
+	64% { top:0px; opacity:1; }
+	76% { top:0px; opacity:1; z-index:0; }
+	80% { top:200px; opacity:0; z-index:0; }
+	81% { top:-200px; opacity:0; z-index:-1; }
+	100%{ top:-200px; opacity:0; z-index:-1; }
+}
+@keyframes cycle5 {
+	0%  { top:-200px; opacity:0; }
+	76% { top:-200px; opacity:0; }
+	80% { top:0px; opacity:1; }
+	84% { top:0px; opacity:1; }
+	96% { top:0px; opacity:1; z-index:0; }
+	100%{ top:200px; opacity:0; z-index:0; }
+}
+/* progressbar */
+.cp_progressbar {
+	position:relative;
+	top:-5px;
+	width:680px;
+	height:5px;
+	background:#000000;
+	-webkit-animation:progressbar 25s ease-out infinite;
+	animation:progressbar 25s ease-out infinite;
+}
+/* animation */
+@keyframes progressbar {
+	0%, 20%, 40%, 60%, 80%, 100% { width:0%; opacity:0; z-index:2; }
+	4%, 24%, 44%, 64%, 84% { width:0%; opacity:0.3; z-index:2; }
+	16%, 36%, 56%, 76%, 96% { width:100%; opacity:0.3; z-index:2; }
+	18%, 38%, 58%, 78%, 98% { width:100%; opacity:0;  z-index:2; }
+}
+</style>

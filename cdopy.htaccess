@@ -1,0 +1,537 @@
+# ▼ 特定URLをルート.htaccess管理下から除外する ▼
+RewriteCond %{REQUEST_URI} !(^/online/)
+RewriteCond %{REQUEST_URI} !(^/test/)
+RewriteCond %{REQUEST_URI} !(^/blog/)
+RewriteCond %{REQUEST_URI} !(^/blog)
+
+#security
+Header always append X-Frame-Options SAMEORIGIN
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-XSS-Protection "1; mode=block"
+Header set Strict-Transport-Security "max-age=315360000; includeSubDomains; preload"
+DirectoryIndex index.php index.html
+
+ErrorDocument 401 /error/401
+ErrorDocument 403 /error/403
+ErrorDocument 404 /error/404
+ErrorDocument 500 /error/500
+ErrorDocument 501 /error/501
+ErrorDocument 503 /error/503
+ErrorDocument 401 /error/401.html
+ErrorDocument 403 /error/403.html
+ErrorDocument 404 /error/404.html
+ErrorDocument 500 /error/500.html
+ErrorDocument 501 /error/501.html
+ErrorDocument 503 /error/503.html
+#order deny,allow
+#deny from all
+#allow from 183.176.225.108
+#Allow from 192.168.2.1
+#Allow from 192.168.2.199
+#Allow from all
+
+# MIME Type 追加
+<IfModule mime_module>
+  AddType image/gif .gif
+  AddType image/x-icon .ico
+  AddType image/svg+xml .svg
+  AddType application/x-font-ttf .ttf
+  AddType application/x-font-woff .woff
+  AddType application/font-woff2 .woff2
+  AddType application/x-font-opentype .otf
+  AddType application/vnd.ms-fontobject .eot
+  <FilesMatch "\.(html)$">
+  AddType application/x-httpd-lsphp .html
+  </FilesMatch>
+</IfModule>
+
+<FilesMatch "\.(woff)$">
+    Header unset Vary
+</FilesMatch>
+
+<FilesMatch "\.(eot)$">
+    Header unset Vary
+</FilesMatch>
+
+# ETags(Configure entity tags) を無視する設定
+<IfModule mod_headers.c>
+  Header unset ETag
+</IfModule>
+FileETag None
+
+# Enable Keep-Alive を設定
+<IfModule mod_headers.c>
+  Header set Connection keep-alive
+</IfModule>
+
+# プロクシキャッシュの設定（画像とフォントをキャッシュ）
+<IfModule mod_headers.c>
+<FilesMatch "\.(ico|jpe?g|png|gif|svg|swf|webp|pdf|ttf|woff|woff2|otf|eot)$">
+  Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+</IfModule>
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www\.
+RewriteRule ^(.*)$https://40010monogatari.com/$1 [R=301,L]
+RewriteCond %{THE_REQUEST} ^.*/index.html
+RewriteRule ^(.*)index.html$ https://40010monogatari.com/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+# ▼ 特定URLをルート.htaccess管理下から除外する ▼
+RewriteCond %{REQUEST_URI} !(^/online/)
+RewriteCond %{REQUEST_URI} !(^/blog/)
+RewriteCond %{REQUEST_URI} !(^/blog)
+RewriteCond %{REQUEST_URI} !(^/test/)
+RewriteRule ^([^.]+)$ $1.html [NC,L]
+
+RewriteCond %{THE_REQUEST} ^.*/index.php
+# ▼ 特定URLをルート.htaccess管理下から除外する ▼
+RewriteCond %{REQUEST_URI} !(^/online/)
+RewriteCond %{REQUEST_URI} !(^/blog/)
+RewriteCond %{REQUEST_URI} !(^/blog)
+RewriteCond %{REQUEST_URI} !(^/test/)
+RewriteRule ^(.*)index.php$ https://40010monogatari.com/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+# ▼ 特定URLをルート.htaccess管理下から除外する ▼
+RewriteCond %{REQUEST_URI} !(^/online/)
+RewriteCond %{REQUEST_URI} !(^/blog/)
+RewriteCond %{REQUEST_URI} !(^/blog)
+RewriteCond %{REQUEST_URI} !(^/test/)
+RewriteRule ^(.*)$ $1.php
+
+
+# ブラウザキャッシュの設定
+<IfModule mod_headers.c>
+
+    # キャッシュ初期化（1秒に設定）
+    ExpiresDefault "access plus 1 seconds"
+
+    # MIME Type ごとの設定
+</IfModule>
+
+
+#2019/03/0コンテンツ圧縮の設定
+<IfModule mod_deflate.c>
+SetOutputFilter DEFLATE
+
+  # Compress HTML, CSS, JavaScript, Text, XML and fonts
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+  AddOutputFilterByType DEFLATE application/x-font
+  AddOutputFilterByType DEFLATE application/x-font-opentype
+  AddOutputFilterByType DEFLATE application/x-font-otf
+  AddOutputFilterByType DEFLATE application/x-font-truetype
+  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE font/opentype
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE image/x-icon
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+
+  # Remove browser bugs (only needed for really old browsers)
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  Header append Vary User-Agent
+
+  # 画像など圧縮済みのコンテンツは再圧縮しない
+  SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|webp|ico)$ no-gzip dont-vary
+  SetEnvIfNoCase Request_URI _\.utxt$ no-gzip
+
+  # プロクシサーバーが間違ったコンテンツを配布しないようにする
+  Header append Vary Accept-Encoding env=!dont-vary
+</IfModule>
+
+#<LocationMatch "\.(eot|otf|woff|woff2|ttf)$">
+#  Header unset Cache-Control
+#  Header unset no-store
+# </LocationMatch >
+
+# Allow access from all domains for webfonts.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css)$">
+    Header set Access-Control-Allow-Origin "https://twitter\.com"
+    Header set Access-Control-Allow-Origin "https://cards-dev\.twitter\.com"
+    Header set Access-Control-Allow-Origin "https://instagram.com"
+    Header set Access-Control-Allow-Origin "https://www.instagram.com"
+    Header set Access-Control-Allow-Origin "www6\.conoha\.ne\.jp"
+  </FilesMatch>
+</IfModule>
+
+#<FilesMatch "\.(ttf|otf|eot|woff|woff2)$">
+#    <IfModule mod_headers.c>
+#      Header set Access-Control-Allow-Origin "*"
+#    </IfModule>
+#</FilesMatch>
+
+# 直接リンク
+SetEnvIf Referer "^https://40010monogatari\.com/" OK
+<Files ~ "\.(png|jpg|jpeg|gif|webp)$">
+order deny,allow
+deny from all
+allow from env=OK
+</Files>
+
+#jp-site
+#SetEnvIf Referer "" OK website記述がべた
+SetEnvIf Referer "google" OK
+SetEnvIf Referer "yahoo" OK
+SetEnvIf Referer "bing" OK
+
+SetEnvIf Referer "^https://40010monogatari\.com/" OK
+#ボットの設定
+SetEnvIf User-Agent "Googlebot" ok
+SetEnvIf User-Agent "Slurp" denybot
+SetEnvIf User-Agent "bingbot" denybot
+SetEnvIf User-Agent "msnbot" denybot
+SetEnvIf User-Agent "Yandex" denybot
+SetEnvIf User-Agent "DuckDuckBot" denybot
+SetEnvIf User-Agent "Mappy" denybot
+SetEnvIf User-Agent "proximic" denybot
+#SetEnvIf User-Agent "Twitterbot" denybot
+SetEnvIf User-Agent "applebot" denybot
+SetEnvIf User-Agent "blogmuraBot" denybot
+SetEnvIf User-Agent "SemrushBot" denybot
+SetEnvIf User-Agent "AhrefsBot" denybot
+SetEnvIf User-Agent "BLEXBot" denybot
+<Files ~ ".(xml|css|jpg|jpeg|png|gif|js|webp)$">
+
+#AllowとDenyの順序を指定
+order Allow,Deny
+
+#全てのアクセスを許可
+Allow from all
+
+#ボットからのアクセスを拒否
+Deny from env=denybot
+#jp-site is allow
+allow from env=OK
+</Files>
+
+#webfont ie
+#<ifmodule mod_headers.c="">
+#  <filesmatch "¥.(ttf|otf|eot|woff|woff2)$"="">
+#    Header set Access-Control-Allow-Origin "*"
+#  </filesmatch>
+#</ifmodule>
+
+#<IfModule mod_headers.c>
+# クローラー用に指定日時にまたきてねと言っておく
+#Header set Retry-After "Mon, 10 September 2016 12:00:00 GMT"
+#</IfModule>
+
+# 見られたくないファイルの拡張子
+<Files ~ ".(log|csv|ini|dat|tpl|yml)$">
+deny from all
+</Files>
+
+#ディレクトリの一覧を表示しない命令
+IndexIgnore *
+
+<FilesMatch "wp-login.php|wp-admin|xmlrpc.php">
+  Order deny,allow
+  Deny from all
+  Allow from 192.168.2.100
+  Allow from 192.168.2.105
+  Allow from 192.168.2.149
+  Allow from 192.168.2.140
+  Allow from 192.168.2.199
+  Allow from 192.168.2.189
+  Allow from 192.168.2.188
+  Allow from 192.168.2.179
+  Allow from 115.31.50.122
+  Allow from 183.176.225.108
+  Allow from 115.31.51.201
+</FilesMatch>
+
+# Allow access to wp-admin/admin-ajax.php
+<Files admin-ajax.php>
+Order allow,deny
+Allow from all
+Satisfy any
+</Files>
+
+<files wp-config.php>
+  Order deny,allow
+  Deny from all
+  Allow from 192.168.2.100
+  Allow from 192.168.2.105
+  Allow from 192.168.2.149
+  Allow from 192.168.2.199
+  Allow from 192.168.2.188
+  Allow from 192.168.2.179
+  Allow from 115.31.50.122
+  Allow from 183.176.225.108
+  Allow from 115.31.51.201
+</files>
+
+#アクセス禁止
+order allow,deny
+allow from all
+deny from 193.106.30.99
+deny from 52.188.56.214
+deny from 67.205.178.10
+deny from 188.165.195.184
+deny from 78.155.218.90
+deny from 77.68.30.189
+deny from 141.98.80.58
+deny from 5.135.213.207
+deny from 51.38.230.214
+deny from 84.17.59.70
+deny from 192.254.68.134
+deny from 185.56.219.111
+deny from 68.183.33.11
+deny from 149.28.196.62
+deny from 139.59.42.234
+deny from 78.46.71.244
+deny from 139.180.144.122
+deny from 134.209.26.12
+deny from 103.109.15.196
+deny from 5.83.161.224
+deny from 103.13.242.215
+deny from 133.167.79.116
+deny from 5.83.161.224
+deny from 139.180.144.122
+# 😺＜こっからは拒否（deny）。うちのサイトへの訪問を許可しないのでサーバーで弾いてね。
+# 😺＜拒否する国ドメイン ↓
+deny from .ru
+deny from .ck
+deny from .cn
+deny from .kr
+deny from .ro
+deny from .hr
+deny from .il
+
+# WebP対応ブラウザかつWebPファイルがあればWebPファイルを返す設定
+<IfModule mod_rewrite.c>
+  # Rewriteモジュールを有効にする
+  RewriteEngine On
+
+  # WebP対応ブラウザはAcceptリクエストヘッダにimage/webpを含む慣例
+  # その場合のみ後続のRewriteRuleを適用する
+  RewriteCond %{HTTP_ACCEPT} image/webp
+
+  # 対応するWebP版のファイルがある場合のみ後続のRewriteRuleを適用する
+  RewriteCond %{SCRIPT_FILENAME}.webp -f
+
+  # *.jpg、*.png、*.gifファイルを*.webpファイルに内部的にルーティングする(ルーティング先は$0.webpでも可)
+  # Content-Typeはimage/webpにする
+  RewriteRule .(jpe?g|png|gif)$ %{SCRIPT_FILENAME}.webp [T=image/webp]
+</IfModule>
+
+# 拡張子.webpファイルへの直接アクセスにはContent-Typeとしてimage/webpを返す設定
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+</IfModule>
+
+# WebPファイルがあるかもしれない画像へのリクエストは全てVary: Acceptレスポンスヘッダを返す設定(CDN対策)
+# Headerディレクティブ単独ではできないのでSetEnvIfディレクティブとの組み合わせで実現する
+<IfModule mod_setenvif.c>
+  SetEnvIf Request_URI "\.(jpe?g|png|gif)$" _image_request
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header append Vary Accept env=_image_request
+</IfModule>
+
+RewriteRule ^(.*) - [E=HTTPS:on]
+
+# ▼ 特定URLをルート.htaccess管理下から除外する ▼
+RewriteCond %{REQUEST_URI} !(^/online/)
+RewriteCond %{REQUEST_URI} !(^/blog/)
+RewriteCond %{REQUEST_URI} !(^/blog)
+RewriteCond %{REQUEST_URI} !(^/test/)
+
+SetEnvIf Request_URI ".*" AllowForeignRestApi
+
+# ページごとのリダイレクトの設定
+RewriteEngine on
+
+Redirect permanent /kounyuu.html https://40010monogatari.com/online/guide
+
+Redirect permanent /info.html https://40010monogatari.com/online/help/about
+
+Redirect permanent /syokutaku.html https://40010monogatari.com/online/help/about
+
+Redirect permanent /voice.html https://40010monogatari.com/online/user_data/review
+
+Redirect permanent /voice https://40010monogatari.com/online/user_data/review
+
+Redirect permanent /online/voice https://40010monogatari.com/online/user_data/review
+
+Redirect permanent /online/voice.html https://40010monogatari.com/online/user_data/review
+
+RewriteCond %{QUERY_STRING} code=ayudashitukudani$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/21?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=tataki$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/27?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=yakiayu-syouyu$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/24?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=unagisyoga$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/9?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=ayu-shioyaki$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/15?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=ayu-uruka$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/19?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=kawaebi$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/26?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=yakiayumiso$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/18?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=yakiayu$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/16?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=kawanodashi$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/20?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=ayu-aonori$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/14?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=ayu-suzuke-ni$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/17?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=unagi$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/7?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=ayu$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/10?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=unagimeshi$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/8?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=noritukudani$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/22?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=katakonikku$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/23?$1 [L,R=301]
+
+RewriteCond %{QUERY_STRING} code=furikake$
+RewriteRule ^shop/detail https://40010monogatari.com/online/products/detail/28?$1 [L,R=301]
+
+Redirect permanent /shop/business.html https://40010monogatari.com/online/help/tradelaw
+
+Redirect permanent /shop/ask.html https://40010monogatari.com/online/guide
+
+Redirect permanent /kaioki.html https://40010monogatari.com/online/guide
+
+Redirect permanent /online/index.html https://40010monogatari.com/online/
+
+
+<RequireAll>
+Require all granted
+Require not ip 5.188.84.19
+Require not ip 49.98.87.246
+Require not ip 151.80.40.72
+Require not ip 196.242.115.205
+Require not ip 185.164.59.158
+Require not ip 49.96.15.183
+Require not ip 196.240.58.2
+Require not ip 142.93.10.123
+Require not ip 196.245.187.227
+Require not ip 138.199.36.210
+Require not ip 126.196.233.101
+Require not ip 182.168.196.203
+Require not ip 182.168.196.100
+Require not ip 182.168.196.1
+Require not ip 182.168.196.255
+Require not ip 182.168.196.10
+Require not ip 182.168.196.200
+Require not ip 182.168.196.2
+Require not ip 5.188.210.1
+Require not ip 5.188.210.200
+Require not ip 5.188.210.4
+Require not ip 5.188.210.100
+Require not ip 5.188.210.2
+Require not ip 5.188.210.3
+Require not ip 185.189.114.200
+Require not ip 185.189.114.118
+Require not ip 185.189.114.10
+Require not ip 185.189.114.1
+Require not ip 185.189.114.2
+Require not ip 185.189.114.100
+Require not ip 191.101.31.132
+Require not ip 45.227.253.70
+Require not ip 191.96.227.254
+Require not ip 107.174.231.138
+Require not ip 107.174.226.202
+Require not ip 196.245.186.157
+Require not ip 196.244.48.88
+Require not ip 107.173.4.202
+Require not ip 23.95.219.61
+Require not ip 196.240.237.59
+Require not ip 196.242.46.238
+Require not ip 107.173.112.209
+Require not ip 196.242.46.77
+Require not ip 196.244.46.129
+Require not ip 158.222.11.73
+Require not ip 23.95.219.112
+Require not ip 77.81.139.44
+Require not ip 196.242.46.113
+Require not ip 45.141.232.59
+Require not ip 84.17.49.225
+Require not ip 196.196.224.172
+Require not ip 23.95.237.220
+Require not ip 104.160.11.198
+Require not ip 161.0.9.22
+Require not ip 138.199.27.7
+Require not ip 154.16.152.148
+Require not ip 136.244.110.95
+Require not ip 86.106.74.251
+Require not ip 45.125.245.160
+Require not ip 170.83.176.110
+Require not ip 45.125.245.94
+Require not ip 107.174.151.228
+</RequireAll>
+
+# 直接リンク
+SetEnvIf Referer "^https://40010monogatari\.com/" OK
+<Files ~ "\.(png|jpg|jpeg|gif|webp)$">
+order deny,allow
+deny from all
+allow from env=OK
+</Files>
+<ifModule mod_expires.c>
+    ExpiresActive On
+
+    # キャッシュ初期化（1秒に設定）
+    ExpiresDefault "access plus 1 seconds"
+
+    # MIME Type ごとの設定
+    ExpiresByType text/html "access plus 1 weeks"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType text/js "access plus 1 weeks"
+    ExpiresByType text/javascript "access plus 1 weeks"  
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 weeks"
+    ExpiresByType application/pdf "access plus 1 weeks"
+    ExpiresByType application/javascript "access plus 1 weeks"  
+    ExpiresByType application/x-javascript "access plus 1 weeks"
+    ExpiresByType application/x-font-ttf "access plus 1 year"
+    ExpiresByType application/x-font-woff "access plus 1 year"
+    ExpiresByType application/x-font-opentype "access plus 1 year"
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+</IfModule>
