@@ -84,6 +84,7 @@
 <link rel="preload prefetch" href="https://cdn.snapppt.com/e/snap-widget-5dc03217008b8497f941.js" as="script">
 <link rel="preload prefetch" href="https://cse.google.com/cse.js?cx=9b3f712378ff4f2ab" as="script">
 
+
  <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -123,15 +124,240 @@
     <div class="h_tel font_mincho"><a class="faa-parent animated-hover" href="tel:0880-27-0186"><i class="fas fa-phone faa-tada"></i><span>0880-<strong>27-0186</strong></span></a></div>
     <nav id="g_navi">
       
-	<?php require('php/global_navi.php'); ?>
+      <ul class="navi_base">
+        <li><a href="index.html" class="faa-parent animated-hover">
+          <i class="fas fa-home faa-tada"></i>&nbsp;HOME</a></li>
+          <li><a class="ac_menu faa-parent animated-hover"><i class="fas fa-pencil-alt faa-tada"></i>&nbsp;四万十生産について</a>
+          <div class="ac_list">
+          <ul>
+          <li><a href="sample">サンプルページ</a></li>
+          <li><a href="concept">コンセプト</a></li>
+          <li><a href="commitment">こだわり</a></li>
+          <li><a href="development">商品企画の流れ</a></li>
+          </ul>
+          </div>
+          </li>   
+          <li><a class="ac_menu faa-parent animated-hover"><i class="far fa-credit-card faa-tada"></i>&nbsp;販売実績</a>
+          <div class="ac_list">
+          <ul>
+          <li><a href="works">販売実績</a></li>
+          <li><a href="hokkaido">北海道・東北</a></li>
+          <li><a href="kanto">関東・甲信越</a></li>
+          <li><a href="kinki">中部・近畿・東海</a></li>
+          <li><a href="chugoku">中国・四国</a></li>
+          <li><a href="kyushu">九州・沖縄</a></li>
+          <li><a href="overseas">海外（アメリカ・ヨーロッパ）</a></li>
+          <li><a href="online/" alt="通販サイト四万十ものがたりへ移動">オンラインストア</a></li>
+          </ul>
+          </div>
+          </li>  
+          <li><a href="faq" class="faa-parent animated-hover"><i class="fas fa-question faa-tada"></i>&nbsp;FAQ</a></li>
+          <li><a href="schedule" class="faa-parent animated-hover"><i class="far fa-calendar-alt faa-tada"></i>&nbsp;イベント情報</a></li>
+          <li><a class="ac_menu faa-parent animated-hover"><i class="fas fa-building faa-tada"></i>&nbsp;会社案内</a>
+          <div class="ac_list">
+          <ul>
+          <li><a href="company">会社概要</a></li>
+          <li><a href="recruit">採用情報</a></li>
+          <li><a href="site-map">サイトマップ</a></li>
+          <li><a href="company#access">アクセス</a></li>
+          
+          </ul>
+          </div>
+          </li>
+        </ul>
+	
         
-        <?php require('php/mobile_menu.php'); ?>
+        <div class="mobile_area"> 
+          <ul class="f_bn">
+              <li><a class="faa-parent animated-hover" rel="noopener norefferrer" target="" href="#" alt="ブログリンクです。"><i class="fas fa-book faa-tada faa-slow fa-lg fa-fw"></i>&nbsp;ブログ</a></li>
+              <li><a class="faa-parent animated-hover" rel="noopener norefferrer" target="" href="#" alt="オンラインストアへのリンクです。"><i class="fas fa-shopping-cart faa-bounce faa-slow fa-lg fa-fw" ></i>&nbsp;オンラインストア</a></li>
+              <li><a class="faa-parent animated-hover" rel="noopener norefferrer" target="_blank" href="#" alt="新規タブを開きます。Twitterリンクです。"><i class="fab fa-twitter faa-tada fa-lg fa-fw"></i>&nbsp;Twitter</a></li>
+              <li><a class="faa-parent animated-hover" rel="noopener norefferrer" target="_blank" href="#" alt="新規タブを開きます。Instagramリンクです。"><i class="fab fa-instagram faa-tada fa-lg fa-fw"></i>&nbsp;Instagram</a></li>
+        <li class=""><a class="faa-parent animated-hover" rel="noopener norefferrer" target="_blank" href="#" alt="新規タブを開きます。商品パンフレットのページへ移動。"><i class="fas fa-download faa-tada fa-lg fa-fw"></i>&nbsp;資料DL</a></li>
+      
+          </ul>
+          <span> <a href="#"> <img loading="lazy" data-lazy="true" class="onenshi lozad" src="" srcset="https://40010monogatari.com/blog/wp-content/uploads/2022/09/753_h.jpg?<?php echo date('Ymd-Hi'); ?>" srcset="https://40010monogatari.com/blog/wp-content/uploads/2022/09/753_h.jpg?<?php echo date('Ymd-Hi'); ?>" alt="2022年七五三　ブライダル　ハロウィン応援セール　終了まであと少し応援特集ページ"> </a></span>
+      
+      
+      </div>
+      
+      <style>
+      /*-- PC版表示CSS --*/
+      .mobile_area{display:none;}
+      /*-- スマホ版表示CSS --*/
+      @media screen and (max-width: 770px){.mobile_area{display:block;}}
+      @media(prefers-color-scheme:light){@media screen and (max-width:960px){#g_navi ul li a{color:#111!important}}}
+      @media(prefers-color-scheme:dark){.fa-book:before{color:lightslategray}}
+      @media screen and (max-width: 960px){
+       #g_navi ul li:not(:first-child) {
+          border-top-width:1px!important;
+          border-top-style:solid!important;
+          border-top-color:#EEE!important;
+          z-index: 0;
+       }
+      }
+      </style>
+      
 
       </nav>
     
     </header>
 
-    <?php require('php/desk_menu.php'); ?>
+ <style>
+  @media (prefers-color-scheme: dark){
+      .dark.sd.test img {
+      width: -webkit-fill-available;
+  }
+          span.light.sd{display:none;transition:all 300ms;backface-visibility:hidden;-webkit-backface-visibility:hidden;}
+          span.dark.sd{display:inline-block;transition:all 300ms;backface-visibility:hidden;-webkit-backface-visibility:hidden;}
+  }
+  @media only screen and (max-width:767px) {
+      .display_sd{display:none;}
+  }
+  @media only screen and (min-width:768px) and (max-width:960px) {
+    li.ssl a#aa img{clear:both;transform:scale(1.7);top:0;float:left}  
+  }
+  @media only screen and (min-width:961px) {
+    li.ssl a#aa img{clear:both;transform:scale(0.5);top:0;float:left;margin-inline-start:-2.7em;margin-block-start:-0.8em}
+  }
+  .dark.sd.test img{display:none}
+  .light.sd.test img {width:-webkit-fill-available}
+  .cp_snslink05,.cp_snslink05 .cp_link a span,.cp_snslink05 .cp_link a:hover span,.cp_snslink05 .cp_link a {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+    .cont_wrap {
+      /*設置する親要素ページ全体ならbodyなど*/
+      position: relative;
+      /*height: 100vh;*/
+    }
+    .cp_snslink05 {
+        z-index: 999;
+        opacity: 0.9;
+      position: fixed;
+      top: 50%;
+      left: 0;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
+    }
+    
+    .cp_snslink05 .cp_link a {
+      position: relative;
+      font-family: 'FontAwesome';
+      display: block;
+      width: 58px;
+      height: 53px;
+      padding: 10px;
+      -webkit-transition: background 0.5s ease 0.3ms;
+      transition: background 0.5s ease 0.3ms;
+      text-align: center;
+      text-decoration: none;
+      color: #ffffff;
+      background: #263238;
+    }
+    .snshome{color:blanchedalmond!important}
+    .cp_snslink05 .home a:hover {
+      background: #3b5998;
+    }
+    .cp_snslink05 .blog a:hover {
+      background: #3b5998;
+    }
+    .cp_snslink05 .twitter a:hover {
+      background: #00acee;
+    }
+    .cp_snslink05 .google a:hover {
+      background: #dd4b39;
+    }
+    .cp_snslink05 .instagram a:hover {
+      background: linear-gradient(45deg, #fdf497,#fd5949,#d6249f,#285aeb );
+    }
+    .cp_snslink05 .cp_link:first-child a {
+      border-radius: 0 10px 0 0;
+    }
+    .cp_snslink05 .cp_link:last-child a {
+      border-radius: 0 0 10px 0;
+    }
+    .cp_snslink05 .cp_link a span {
+      visibility: hidden;
+      display: inline-block;
+      position: absolute;
+      min-width: 7em;
+      top: 0.5em;
+      left: 71px;
+      line-height: 1.3em;
+      padding: 8px;
+      -webkit-transition: all 0.5s ease 0.3ms;
+      transition: all 0.5s ease 0.3ms;
+      transform: rotateY(45deg);
+      transform-origin: 0;
+      text-align: center;
+      opacity: 0;
+      color: #ffffff;
+      border-radius: 5px;
+      background: #263238;
+    }
+    .cp_snslink05 .cp_link span:after {
+      position: absolute;
+      top: 9px;
+      left: -16px;
+      display: block;
+      width: 0;
+      height: 0;
+      content: '';
+      border: 10px solid transparent;
+      border-right: 10px solid #263238;
+        transition: all 0.5s ease 0.3ms;
+    }
+    .cp_snslink05 .cp_link a:hover span {
+      visibility: visible;
+      transform: rotateY(0);
+      opacity: 1;
+      transition: all 0.5s ease 0.3ms;
+    }
+    .cp_snslink05 .cp_link a span, span#ss_img_wrapper_2021gmogs_130-66_ja_w a span {
+    visibility: hidden;
+    display: inline-block;
+    position: absolute;
+    min-width: 7em;
+    top: 0.5em;
+    left: 71px;
+    line-height: 1.3em;
+    padding: 8px;
+    -webkit-transition: all 0.5s ease 0.3ms;
+    transition: all 0.5s ease 0.3ms;
+    transform: rotateY(45deg);
+    transform-origin: 0;
+    text-align: center;
+    opacity: 0;
+    color: #ffffff;
+    border-radius: 5px;
+    background: #263238;
+    backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  }
+  
+    </style>
+    
+    <div class="display_sd lozad">
+    <ul class="cp_snslink05">
+      <li class="cp_link home"><a class="faa-parent animated-hover" rel="noopener norefferrer" target="_blank" href="#?grid=desk_navi" alt="新規タブを開きます。ホームに戻ります"><i class="fas fa-home faa-tada fa-lg fa-2x fa-fw snshome" style="color: #fff;"></i><span>Home</span></a></li>
+      <li class="cp_link blog"><a class="faa-parent animated-hover" rel="noopener norefferrer" target="_blank" href="#blog/?grid=desk_navi" alt="新規タブを開きます。ブログリンクです。"><i class="fas fa-book faa-tada fa-2x fa-fw" style="color: #fff;"></i><span>Blog</span></a></li>
+      <li class="cp_link blog"><a class="faa-parent animated-hover" rel="noopener norefferrer" target="_blank" href="#blog/pamphlet/?grid=desk_navi" alt="新規タブを開きます。商品パンフレットのページへ移動。"><i class="fas fa-download faa-tada fa-2x fa-fw" style="color: #fff;"></i><span>資料DL</span></a></li>
+      <li class="cp_link ssl">
+          <!-- <script src="//ssif1.globalsign.com/SiteSeal/siteSeal/siteSeal/siteSeal.do?p1=40010monogatari.com&amp;p2=SZ130-66&amp;p3=image&amp;p4=ja&amp;p5=V2003&amp;p6=S001&amp;p7=https"></script><span> <a id="aa" href="javascript:ss_open_sub()"><img name="ss_imgTag" border="0" src="//ssif1.globalsign.com/SiteSeal/siteSeal/siteSeal/siteSealImage.do?p1=40010monogatari.com&amp;p2=SZ130-66&amp;p3=image&amp;p4=ja&amp;p5=V2003&amp;p6=S001&amp;p7=https&amp;deterDn=" alt="グローバルサイン認証サイト　SSL secured クリックして確認　GlobalSign byGMO" oncontextmenu="return false;" galleryimg="no" style="width:130px"><span class="ssl">SSL</span></a></span><span id="ss_siteSeal_fin_SZ130-66_image_ja_V2003_S001"></span> -->
+          <script src="//ssif1.globalsign.com/SiteSeal/siteSeal/siteSeal/siteSeal.do?p1=40010monogatari.com&amp;p2=SZ130-66&amp;p3=image&amp;p4=ja&amp;p5=V2003&amp;p6=S001&amp;p7=https"></script><span> <a id="aa" href="javascript:ss_open_sub()"><img name="ss_imgTag" border="0" src="//ssif1.globalsign.com/SiteSeal/siteSeal/siteSeal/siteSealImage.do?p1=40010monogatari.com&p2=SZ130-66&p3=image&p4=ja&p5=V2002&p6=S001&p7=https&deterDn=" alt="グローバルサイン認証サイト　SSL secured クリックして確認　GlobalSign byGMO" oncontextmenu="return false;" galleryimg="no" style="width:130px"><span class="ssl">SSL</span></a></span><span id="ss_siteSeal_fin_SZ130-66_image_ja_V2003_S001"></span>
+          <script type="text/javascript" src="//seal.globalsign.com/SiteSeal/2021gmogs_130-66_ja_t.js" defer="defer"></script>
+          
+      </li>           
+      <li class="cp_link twitter"><a class="faa-parent animated-hover" rel="noopener norefferrer" target="_blank" href="#?grid=desk_navi" alt="新規タブを開きます。Twitterリンクです。"><i class="fab fa-twitter faa-tada fa-2x fa-fw"></i><span>Twitter</span></a></li>
+      <li class="cp_link line"><a class="faa-parent animated-hover" rel="noopener norefferrer" target="" href="#/fgFrZJL?grid=desk_navi" alt="ラインお友達登録画面へ移動"><i class="fab fa-line faa-tada fa-2x fa-fw" style="color:limegreen"></i><span>LINE</span></a></li>
+      <li class="cp_link instagram"><a class="faa-parent animated-hover" rel="noopener norefferrer" target="_blank" href="#/?grid=desk_navi" alt="新規タブを開きます。Instagramリンクです。"><i class="fab fa-instagram faa-tada fa-2x fa-fw"></i><span>instagram</span></a></li>
+      <li class="cp_link google"><a class="faa-parent animated-hover" rel="noopener norefferrer" target="" href="#online/cart?grid=desk_navi" alt="カート。お買い物籠へ移動"><i class="fas fa-shopping-cart faa-tada fa-2x fa-fw"></i><span>お買い物カゴ</span></a></li>
+    </ul>
+    </div>
 
     <div id="index_top">
       <div id="top_catch">
@@ -184,7 +410,52 @@
           <li><span>2021.12.27</span><a rel="noopener norefferrer" href="https://www.syokuraku-web.com/gift/64014/?grid=news">食楽WEB</a>で商品が紹介されました。</li>
           <li><span>2021.02.24</span><a rel="noopener norefferrer" href="online/?grid=news">通販サイト</a>を公開いたしました。</li>
         </ul>
-<?php require('php/special_banner_bottom.php'); ?>
+<style>.pc{display:none}.wrap_2nd{display:flex;flex-flow:column;border:2px #ccc solid;margin:0 0 1em}.content_f{padding:1em;background-color:var(--main-bg);margin:0.5em auto}@media screen and (min-width:960px){.sp{display:none!important}.pc{display:block!important}.content_f{width:max-content}.banner{max-width:800px!important}}</style>
+          
+<div class="wrap_2nd effect d_02 content_f">
+        <a rel="noopener norefferrer" target="_blank" href="#/753?banner_bottom">
+                <img class="banner lozad" src="" data-src="#/wp-content/uploads/2022/09/753.jpg?<?php echo date('Ymd-Hi'); ?>" srcset="#/wp-content/uploads/2022/09/753.jpg?<?php echo date('Ymd-Hi'); ?>" alt="2022年七五三　ブライダル　ハロウィン応援セール　終了まであと少し応援特集ページ">
+        </a>
+        <a class="pc" rel="noopener norefferrer" target="_blank" href="#/?banner_bottom">
+                <span class="pc banner lozad" style="top:0;background-image: url();width:165px;background-size:contain;height:1238px;position:fixed;right:0;margin-right:-15em" data-background-image="https://40010monogatari.com/img/2022/july/amazon-pay_banner_vd.jpg?<?php echo date('Ymd-Hi'); ?>" srcset="https://40010monogatari.com/img/2022/july/amazon-pay_banner_vd.jpg?<?php echo date('Ymd-Hi'); ?>" alt="アマゾンペイでお支払いいただけます"></span>
+        </a>
+  </div>
+  <div class="wrap_2nd effect d_04 content_f">
+        <a rel="noopener norefferrer" target="_blank" href="#/?banner_bottom">
+                <img class="sp banner lozad" src="" data-src="https://40010monogatari.com/img/2022/july/amazon-pay_banner_h.jpg?<?php echo date('Ymd-Hi'); ?>" srcset="https://40010monogatari.com/img/2022/july/amazon-pay_banner_h.jpg?<?php echo date('Ymd-Hi'); ?>" alt="アマゾンペイでお支払いいただけます">
+                <span class="pc banner lozad" style="background-image: url();width:800px;background-size:contain;height:164px" data-background-image="https://40010monogatari.com/img/2022/july/amazon-pay_banner_hd.jpg?<?php echo date('Ymd-Hi'); ?>" srcset="https://40010monogatari.com/img/2022/july/amazon-pay_banner_hd.jpg?<?php echo date('Ymd-Hi'); ?>" alt="アマゾンペイでお支払いいただけます"></span>
+        </a>
+  </div>
+  <div class="wrap_2nd effect d_06 content_f">
+        <a rel="noopener norefferrer" target="_blank" href="https://www.satofull.jp/products/detail.php?product_id=1052668&banner_bottom">
+                <img class="sp banner lozad" src="" data-src="https://40010monogatari.com/img/2022/july/satofuru_680_200.jpg?<?php echo date('Ymd-Hi'); ?>" srcset="https://40010monogatari.com/img/2022/july/satofuru_680_200.jpg?<?php echo date('Ymd-Hi'); ?>" alt="さとふるのご飯のおとも特集ページ">
+                <span class="pc banner lozad" style="background-image: url();width:800px;background-size:contain;height:164px" data-background-image="https://40010monogatari.com/img/2022/july/satofuru_990_200.jpg?<?php echo date('Ymd-Hi'); ?>" srcset="https://40010monogatari.com/img/2022/july/satofuru_990_200.jpg?<?php echo date('Ymd-Hi'); ?>" alt="さとふるのご飯のおとも特集ページ"></span>
+        </a>
+  </div>
+
+  <div class="wrap_2nd effect d_08 content_f">
+        <a rel="noopener norefferrer" target="_blank" href="https://www.furusato-tax.jp/product/detail/39412/4442061?banner_bottom">       
+                <img class="sp banner lozad" src="" data-src="https://www.furusato-tax.jp/img/agreement/city_640_200w.png?<?php echo date('Ymd-Hi'); ?>" srcset="https://www.furusato-tax.jp/img/agreement/city_640_200w.png?<?php echo date('Ymd-Hi'); ?>" alt="ふるさとチョイス　四万十のうなぎ土用丑の日特集" width="640" height="200" decoding="async" />
+                <span class="pc banner lozad" style="background-image: url();width:800px;background-size:contain;height:199px" data-background-image="https://www.furusato-tax.jp/img/agreement/city_728_90w.png?<?php echo date('Ymd-Hi'); ?>" srcset="https://www.furusato-tax.jp/img/agreement/city_728_90w.png?<?php echo date('Ymd-Hi'); ?>" alt="ふるさとチョイス　四万十のうなぎ土用丑の日特集"></span>
+        </a>
+  </div>
+
+  <div class="wrap_2nd effect d_10 content_f">
+        <a rel="noopener norefferrer" target="_blank" href="https://www.furusato-tax.jp/product/detail/39412/4440873?banner_bottom">       
+                <img class="sp banner lozad" src="" data-src="https://www.furusato-tax.jp/img/agreement/640_200.png?<?php echo date('Ymd-Hi'); ?>" srcset="https://www.furusato-tax.jp/img/agreement/640_200.png?<?php echo date('Ymd-Hi'); ?>" alt="ふるさとチョイス　B型支援事業所で働く生産者が作った商品はこちら" width="640" height="200" decoding="async" />
+                <span class="pc banner lozad" style="background-image: url();width:800px;background-size:contain;height:199px" data-background-image="https://www.furusato-tax.jp/img/agreement/728_90.png?<?php echo date('Ymd-Hi'); ?>" srcset="https://www.furusato-tax.jp/img/agreement/728_90.png?<?php echo date('Ymd-Hi'); ?>" alt="ふるさとチョイス　A型支援事業所で働く生産者が作った商品はこちら"></span>
+        </a>
+  </div>
+
+
+
+  <div class="wrap_2nd effect d_10 content_f">
+        <a rel="noopener norefferrer" target="_blank" href="#/show_respect_for_the_elderly?banner_bottom">
+                <img class="sp banner lozad" src="" data-src="https://40010monogatari.com/img/2022/july/Paypay_h.jpg?<?php echo date('Ymd-Hi'); ?>" srcset="https://40010monogatari.com/img/2022/july/Paypay_h.jpg?<?php echo date('Ymd-Hi'); ?>" alt="ペイペイでお支払いいただけます">
+                <span class="pc banner lozad" style="background-image: url();width:800px;background-size:contain;height:164px" data-background-image="https://40010monogatari.com/img/2022/july/paypay_hd.jpg?<?php echo date('Ymd-Hi'); ?>" srcset="https://40010monogatari.com/img/2022/july/paypay_hd.jpg?<?php echo date('Ymd-Hi'); ?>" alt="ペイペイでお支払いいただけます"></span>
+        </a>
+
+  </div>
       </div>
 
       <!-- <?php require('php/special_banner_bottom.php'); ?> -->
@@ -220,7 +491,64 @@
 <footer>
 <div class="cont_wrap">
 
-<?php require('php/footer_share.php'); ?>
+  <div id="youtube" class="ec-topicRole">
+    <div class="ec-role u-fadein _top">
+        <div class="ec-secHeading">
+            <span class="ec-secHeading__en">Youtube</span>
+            <span class="ec-secHeading__line">|</span>
+            <span class="ec-secHeading__ja"><a class="filter" rel="noopener norefferrer" target="_blank" href="https://40010monogatari.com/online/products/detail/40?grid=Youtube" alt="高級志向　うなぎの缶詰">6/10 東京縁で紹介されました　音量が大きいので気を付けて下さい。</a></span>
+            
+        </div>
+
+<lite-youtube id="video" videoid="DLkh-iAC25o" params="controls=1&start=420&end=898&modestbranding=2&rel=0&enablejsapi=1&mute=1" playlabel="父の日&夏ギフトに好適! 激ウマ!! 四国のうなぎ・あゆ・かつお　清流四万十川が育んだグルメ!">
+  <button id="lty-playbtn" type="button" class="lty-playbtn">
+    <span class="lyt-visually-hidden">Play</span>
+  </button>
+</lite-youtube>
+
+</div></div>
+
+<br class="sp_br" style="display:none">
+
+<div id="youtube" class="ec-topicRole">
+    <div class="ec-role u-fadein _top">
+        <div class="ec-secHeading">
+            <span class="ec-secHeading__en">Youtube</span>
+            <span class="ec-secHeading__line">|</span>
+            <span class="ec-secHeading__ja"><a class="filter" rel="noopener norefferrer" target="_blank" href="https://40010monogatari.com/online/products/detail/20?grid=Youtube" alt="四万十伝統の出汁文化　川のダシは最強です">9/23 東京縁で紹介されました　音量が大きいので気を付けて下さい。</a></span>
+
+            
+        </div>
+
+<lite-youtube id="video2" videoid="lgmGdVpAMfw" params="controls=1&start=720&end=742&modestbranding=2&rel=0&enablejsapi=1&mute=1" playlabel="普段使いからお取り寄せ迄　激ウマ!! 四万十川の鮎の出汁は最強です!">
+  <button id="lty-playbtn" type="button" class="lty-playbtn">
+    <span class="lyt-visually-hidden">Play</span>
+  </button>
+</lite-youtube>
+
+</div></div>
+<br><br style="clear:both;">
+
+<ul class="f_bn">
+      <li><a class="faa-parent animated-hover" rel="noopener norefferrer" target="" href="#/?grid=home" alt="ブログリンクです。"><i class="fas fa-book faa-tada"></i>&nbsp;Blog</a></li>
+      <li><a class="faa-parent animated-hover" rel="noopener norefferrer" target="_blank" href="h#?grid=home" alt="新規タブを開きます。Twitterリンクです。"><i class="fab fa-twitter faa-tada"></i>&nbsp;Twitter</a></li>
+      <li><a class="faa-parent animated-hover" rel="noopener norefferrer" target="_blank" href="#/?grid=home" alt="新規タブを開きます。Instagramリンクです。"><i class="fab fa-instagram faa-tada"></i>&nbsp;Instagram</a></li>
+      <li class=""><a class="faa-parent animated-hover" rel="noopener norefferrer" target="_blank" href="#/pamphlet/?grid=desk_navi" alt="新規タブを開きます。商品パンフレットのページへ移動。"><i class="fas fa-download faa-tada fa-lg fa-fw"></i>&nbsp;資料DL</a></li>
+
+</ul>
+  <address>
+  Copyright &copy; 2020 - <script> myDate = new Date() ;myYear = myDate.getFullYear (); document.write(myYear); </script> 四万十生産有限会社. All Rights Reserved.
+
+  </address>
+<script>
+setTimeout(function(){
+  document.getElementById('video').click();
+}, 5000);
+setTimeout(function(){
+  document.getElementById('video2').click();
+}, 10000);
+</script>
+<style>.filter{filter:invert(1)}@media screen and (min-width: 768px){.cont_wrap{/*display:flex;*/flex-wrap:wrap}div#youtube{width:calc(100% / 2.2);padding:20px 10px;text-align:center;float:right}}@media screen and (max-width: 960px){footer .f_bn li a{margin-bottom:1em}.sp_br{display:block!important;clear:both}}</style>
 
   <!--　削除禁止【ＰＲ枠】ここから　--> 
 <!--prno.180216ver2.01set018--> 
@@ -240,7 +568,243 @@
 <link rel="preconnect dns-prefetch" href="https://scontent-atl3-2.cdninstagram.com/">
 <!-- <link rel="preload" href="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" as="script" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
-<?php require('php/include.php');?>
+<span id="portfolio"></span>
+
+<script>
+$(function () {
+
+const ua = navigator.userAgent.toLowerCase()
+const r = document.getElementById('r')
+if (/android|ipod|ipad|iphone|macintosh/.test(ua) && 'ontouchend' in document) {
+
+} else {
+    
+$(document).ready(function(){
+
+  var request = '<link rel="preload" href="./js/jquery.nicescroll.min.js?" crossorigin="" referrerpolicy="no-referrer" as="script"><script src="./js/jquery.nicescroll.min.js?" crossorigin="" referrerpolicy="no-referrer"><\/script><style>div[id^=\'ascrail\']{-webkit-overflow-y:hidden;-moz-overflow-y:hidden;overflow-y:hidden;z-index:201;-moz-border-radius:100vh;-webkit-border-radius:100vh;border-radius:100vh;display:block;background:rgb(221,221,221);width:100%;overflow-x:hidden;-moz-overflow-x:hidden;-webkit-overflow-x:hidden;width:inherit;opacity:0;-webkit-transition:1.0s;-moz-transition:1.0s;transition:1.0s}.nicescroll-cursors{positon:relative!important;/*max-height:7em;*/}body{overflow:auto!important;}<\/style>';
+  $('#portfolio').html(request);
+    
+    });
+    setTimeout(function(){
+      $("body").getNiceScroll().resize()
+    }, 500);
+  
+}
+});
+</script>
+
+<link rel="stylesheet" href="css/lite-yt-embed.min.css" />
+<script src="js/lite-yt-embed.min.js" defer/></script>
+<script>
+var time=new Date().getTime();
+$(function() {
+var h = $(window).height();
+
+$(".wrap").css("display","none");
+$(".head").css("display","none");
+$("#loading ,.dot-floating").height(h).css("display","block");
+});
+
+//全ての読み込みが完了したら実行
+$(window).on("load",function () {
+var now = new Date().getTime();
+if (now-time<=2500) {
+setTimeout("stopload()",5000-(now-time));
+return;
+} else {
+stopload();
+}
+});
+//10秒たったら強制的にロード画面を非表示
+ window.addEventListener("DOMContentLoaded", function(){
+setTimeout("stopload()",10000);
+});
+
+function stopload(){
+$("#loading").delay(300).fadeOut(800);
+$(".dot-floating").delay(200).fadeOut(600);
+$(".wrap").css("display","block");
+$(".head").css("display","block");
+}
+</script>
+
+<!--DarkMode-->
+<style type="text/css">@media(prefers-color-scheme:dark){
+table.gsc-search-box td.gsc-input{background:transparent !important}td#gs_tti50{background:transparent !important;border-radius:25px 0 0 25px !important}table.gsc-search-box{border-radius:25px !important;background:transparent !important}.gsc-input{border-radius:25px !important}.gsc-input-box{background:var(--main-bg) !important;border:none !important}input:placeholder-shown{color:tomato !important}input#gsc-i-id1{background:transparent!important;color:var(--main-bg)!important}.gsst_a .gscb_a{color:darkgoldenrod}input#gsc-i-id1:focus{outline:none !important}
+}
+</style>
+<!--normal-->
+<style type="text/css">
+section
+{
+  max-width: 275px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  position: absolute;
+  top: 100px;
+  color: var(--main-bg);
+  z-index: 299!important
+}
+section p{color:var(--main-text)!important}
+ 
+/** 外枠に色を付けて角丸にする */
+.gsc-control-cse
+{
+  margin: 0px !important;
+  padding: 0px !important;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+}
+ 
+/** 外枠内側のマージンを0にする */
+.gsc-search-box
+{
+  margin: 0px !important;
+}
+ 
+ 
+/** キーワード入力部分のボーダーを消し、角丸にする */
+.gsc-input-box 
+{
+    border: none !important;
+  border-radius: 30px !important;
+  -webkit-border-radius: 30px !important;
+  -moz-border-radius: 30px !important;
+}
+ 
+ 
+/** キーワード入力部分の左側に20ピクセル余白を入れる */
+.gsib_a
+{
+  padding-left: 20px !important;
+}
+ 
+ 
+ 
+/** 検索ボタンを無色透明にし、線を消す */
+.gsc-search-button-v2
+{
+  margin: 0px !important;
+  padding-top: 12px !important;
+  padding-bottom: 13px !important;
+  padding-right: 14px !important;
+  padding-left: 14px !important;
+  background-color: transparent !important;
+  color: #4990c8 !important;
+  border-top-style: none !important;
+  border-right-style: none !important;
+  border-bottom-style: none !important;
+  border-left-style: none !important;
+  cursor:pointer;
+}
+ 
+/** 検索ボタンのアイコンの色と大きさを設定 */
+.gsc-search-button-v2 svg 
+{
+    fill: #00a0e9!important;
+    width: 20px;
+    height: 20px;
+}
+ 
+/** placeholderの色設定 */
+input:placeholder-shown {    color: #bababa; }
+ 
+/* Google Chrome, Safari, Opera 15+, Android, iOS */
+input::-webkit-input-placeholder {    color: #bababa; }
+ 
+/* Firefox 18- */
+input:-moz-placeholder {    color: #bababa; opacity: 1; }
+ 
+/* Firefox 19+ */
+input::-moz-placeholder {   color: #bababa; opacity: 1; }
+ 
+/* IE 10+ */
+input:-ms-input-placeholder {   color: #bababa !important; }
+div#___gcse_0 {
+  border: 2px solid #00a0e9 !important;
+  border-radius: 25px!important;
+}
+table.gsc-search-box td {
+  vertical-align: middle;
+  font-size: 21px!important
+}
+
+@media screen and (min-width:768px) {
+section {
+  left:120px!important;
+}
+}
+
+@media screen and (min-width:900px) {
+section {
+  max-width: 235px!important;
+  left: 190px!important;
+  top: -34px!important;
+  transform: scale(0.85)!important;
+  z-index: 300!important;
+  position: fixed!important;
+}
+}
+
+@media screen and (min-width:960px) {
+section {
+  max-width: 210x!important;
+  top: -19px!important;
+  }
+  section p{color:var(--main-text)!important}
+}
+
+@media screen and (min-width:1024px){
+
+section {
+  max-width: 200px!important;
+  top: -19px!important;
+  left: 235px!important;
+}
+
+}  
+
+@media screen and (min-width:1100px) and (max-width:1280px) {
+
+section {
+  max-width: 265px!important;
+  top: -19px!important;
+  left: 370px!important;
+}
+
+} 
+
+@media screen and (min-width:1300px) {
+
+section {
+  max-width: 265px!important;
+  top: -19px!important;
+  left: 445px!important;
+}
+
+} 
+
+</style>
+<div class="lozad">
+<script>
+window.onload = function(){	$("section input").attr("placeholder", "サイト内検索");};
+</script>
+<section>
+<p>検索窓</p>
+<script async src="https://cse.google.com/cse.js?cx=9b3f712378ff4f2ab"></script>
+<div class="gcse-searchbox-only"></div>
+</section>
+
+<script async src="https://cse.google.com/cse.js?cx=9b3f712378ff4f2ab">
+</script>
+<div class="gcse-searchresults-only"></div>
+</div>
+
 
   <!-- 画像の遅延読み込み -->
   <link rel="preload prefetch" as="script" href="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js" >
