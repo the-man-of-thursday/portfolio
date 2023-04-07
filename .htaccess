@@ -73,9 +73,9 @@ FileETag None
 
 RewriteEngine on
 RewriteCond %{HTTP_HOST} ^www\.
-RewriteRule ^(.*)$https://40010monogatari.com/$1 [R=301,L]
+RewriteRule ^(.*)$https://the-man-of-thursday.github.io/portfolio/$1 [R=301,L]
 RewriteCond %{THE_REQUEST} ^.*/index.html
-RewriteRule ^(.*)index.html$ https://40010monogatari.com/$1 [R=301,L]
+RewriteRule ^(.*)index.html$ https://the-man-of-thursday.github.io/portfolio/$1 [R=301,L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 # ▼ 特定URLをルート.htaccess管理下から除外する ▼
@@ -93,7 +93,7 @@ RewriteCond %{REQUEST_URI} !(^/blog/)
 RewriteCond %{REQUEST_URI} !(^/blog)
 RewriteCond %{REQUEST_URI} !(^/test/)
 
-RewriteRule ^(.*)index.php$ https://40010monogatari.com/$1 [R=301,L]
+RewriteRule ^(.*)index.php$ https://the-man-of-thursday.github.io/portfolio/$1 [R=301,L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
@@ -179,7 +179,7 @@ SetOutputFilter DEFLATE
 #</FilesMatch>
 
 # 直接リンク
-SetEnvIf Referer "^https://40010monogatari\.com/" OK
+SetEnvIf Referer "^https://the-man-of-thursday\.github\.io/portfolio/" OK
 <Files ~ "\.(png|jpg|jpeg|gif|webp)$">
 order deny,allow
 deny from all
@@ -192,7 +192,7 @@ SetEnvIf Referer "google" OK
 SetEnvIf Referer "yahoo" OK
 SetEnvIf Referer "bing" OK
 
-SetEnvIf Referer "^https://40010monogatari\.com/" OK
+SetEnvIf Referer "^https://the-man-of-thursday\.github\.io/portfolio/" OK
 #ボットの設定
 SetEnvIf User-Agent "Googlebot" ok
 SetEnvIf User-Agent "Slurp" denybot
