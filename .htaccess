@@ -4,6 +4,7 @@ RewriteCond %{REQUEST_URI} !(^/test/)
 RewriteCond %{REQUEST_URI} !(^/blog/)
 RewriteCond %{REQUEST_URI} !(^/blog)
 
+
 #security
 Header always append X-Frame-Options SAMEORIGIN
 Header always set X-Content-Type-Options "nosniff"
